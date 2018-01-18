@@ -36,7 +36,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Drinkr</a>
+        <a class="navbar-brand" href="#">TOP SECRET</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -61,20 +61,44 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h1 class="mt-5">Ballistic Missle Homepage (TOP SECRET)</h1>
-          <p class="lead">Enter code for Missle Alert/Alert Test</p>
-          
+          <p class="lead">Enter 4-digit code for Missle Alert/Alert Test</p>
+          <p> <form id = "codeform" method = "post"> 
 
-          
+          <p> <input type = "text" value = "Code" id = "pin"> </input> </p>
+          <p> <input type = "submit" value = "Submit Code" id = "submit"></input> </p>
 
-          <button onclick = "meh()"> Send a message </button>
+          </form> </p>
+          
+          <p  id = "butt" class = "butt"> hai </p>
         </div>
       </div>
     </div>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#submit").on("click", function(e) {
+          e.preventDefault();
+          var inp = $('#pin').val();
+          var len = $('#pin').val().length;
+          
+          if(inp !== "" && !$.isNumeric(inp)){
+            $('#butt').text("Not a valid input.");
+          }
+          if(len == 4){
+          $('#butt').hide(1000);
+          $('#butt').show(1000);
+          $('#butt').text(inp);
 
+         }
+    
+        });
+      });
+
+    </script>
   </body>
 
 </html>
