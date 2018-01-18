@@ -64,12 +64,15 @@
           <p class="lead">Enter 4-digit code for Missle Alert/Alert Test</p>
           <p> <form id = "codeform" method = "post"> 
 
-          <p> <input type = "text" value = "Code" id = "pin"> </input> </p>
-          <p> <input type = "submit" value = "Submit Code" id = "submit"></input> </p>
+          <p> <input type = "text" value = "Code" id = "pin" class = "pin"> </input> </p>
+          <p> <input type = "submit" value = "Submit Test Code" id = "submit-test" class = "submit-test"></input> </p>
+          <p> <input type = "submit" value = "Submit Alert Code" id = "submit-alert" class = "submit-test"></input> </p>
 
           </form> </p>
           
-          <p  id = "butt" class = "butt"> hai </p>
+          <p  id = "butt" class = "butt" style="display:none">  </p>
+          <p  id = "butt2" class = "butt2" style="display:none"> SENDING ALERT TEXT MESSAGE... </p>
+          <p  id = "butt3" class = "butt3" style="display:none"> SNEDING ALERT TEXT MESSAGE... [==========] COMPLETE </p>
         </div>
       </div>
     </div>
@@ -79,23 +82,48 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script>
+
+
       $(document).ready(function() {
-        $("#submit").on("click", function(e) {
+
+        
+
+        $("#submit-test").on("click", function(e) {
           e.preventDefault();
           var inp = $('#pin').val();
           var len = $('#pin').val().length;
+
           
           if(inp !== "" && !$.isNumeric(inp)){
             $('#butt').text("Not a valid input.");
           }
-          if(len == 4){
-          $('#butt').hide(1000);
-          $('#butt').show(1000);
+          else if(len == 4){
           $('#butt').text(inp);
+          $('#submit-test').hide();
+          $('#submit-alert').trigger('click');
 
          }
     
         });
+
+        $("#submit-alert").on("click", function(e) {
+          e.preventDefault();
+          var inp = $('#pin').val();
+          var len = $('#pin').val().length;
+
+          
+          if(inp !== "" && !$.isNumeric(inp)){
+            $('#butt').text("Not a valid input.");
+          }
+          else if(len == 4){
+          
+          $("#butt2").fadeIn(1000);
+          $("#butt2").fadeOut(100);
+          $("#butt3").fadeIn(6000);
+          
+
+      });
+
       });
 
     </script>
