@@ -1,6 +1,6 @@
 // Twilio Credentials
-const accountSid = 'ACf71b3103510c65ab8a2661f03e5cf837';
-const authToken = '1514d431d65f8e36dc56d0b38eb54596';
+const accountSid = -;
+const authToken = -;
 
 function meh(){
   const client = require('twilio')(accountSid, authToken);
